@@ -49,7 +49,7 @@
 .body{
     display: flex;
 }
-.section-1{
+/*.section-1{
     width: 100%;
     background: url("img/bg.jpg");
     background-size: cover;
@@ -69,7 +69,7 @@
     background: #fff;
     padding: 5px;
     border-radius: 5px;
-}
+}*/
 .side-bar ul{
     margin-top: 20px;
     list-style: none;
