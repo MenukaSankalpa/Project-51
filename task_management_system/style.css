@@ -44,6 +44,7 @@
     width: 250px;
     background-color: #262931;
     min-height: 100vh;
+    transition: 500ms width;
 }
 .body{
     display: flex;
@@ -77,6 +78,10 @@
     font-size: 16px;
     padding: 15px 0px;
     padding-left: 20px;
+    transition: 500ms background;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .side-bar ul li:hover{
     background: #127b8e;
@@ -91,4 +96,22 @@
     display: inline-block;
     padding-right: 10px;
     font-size: 23px;
+}
+#navbtn {
+    display: inline-block;
+    margin-left: 70px;
+    font-size: 20px;
+    transition: 500ms color;
+}
+#checkbox{
+    display: none;
+}
+#checkbox:checked ~ .body .side-bar {
+    width: 60px;
+}
+#checkbox:checked ~ .body .side-bar .user-p{
+    visibility: hidden;
+}
+#checkbox:checked ~ .body .side-bar a span{
+    visibility: hidden;
 }
