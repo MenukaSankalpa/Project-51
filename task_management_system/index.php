@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <input type="checkbox" name="" id="checkbox">
@@ -21,7 +21,7 @@
         <nav class="side-bar">
             <div class="user-p">
                 <img src="img/user.jpg" alt="">
-                <h4>Menuka</h4>
+                <h4>@user</h4>
             </div>
             <?php
                 $user = "admin";
