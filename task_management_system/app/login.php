@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['user_name']) && isset($_POST['password'])) {
+if(isset($_POST['user_name2']) && isset($_POST['password'])) {
     function validate_input($data) {
         $data = trim($data);
         $data = stripsLashes($data);
@@ -10,7 +10,7 @@ if(isset($_POST['user_name']) && isset($_POST['password'])) {
 
 } else {
     $em = "unknown error occurred";
-    $header("Location: ../login.php?error=$em");
+    header("Location: ../login.php?error=$em");
     exit();
 }
 

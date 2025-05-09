@@ -13,15 +13,15 @@
     <form method="POST" action="app/login.php" class="shadow p-4">
 
         <h3 class="display-4">LOGIN</h3>
-        <?php if(isset($_GET['error'])) {?>
+        <?php if (isset($_GET['error'])) {?>
             <div class="alert alert-danger" role="alert">
-                <?php echo stripcsLashes($_GET['error']); ?>
+                <?php echo stripcslashes($_GET['error']); ?>
             </div>
         <?php }  ?>
 
-        <?php if(isset($_GET['success'])) {?>
+        <?php if (isset($_GET['success'])) {?>
             <div class="alert alert-success" role="alert">
-                <?php echo stripcslashes($_GET['success']); ?>
+                <?php echo stripslashes($_GET['success']); ?>
             </div>
         <?php }  ?>
         
