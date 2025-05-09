@@ -8,8 +8,21 @@ if(isset($_POST['user_name2']) && isset($_POST['password'])) {
         return $data;
     }
 
+    $user_name = validate_input($_POST['user_name']);
+    $password = validate_input($_POST['password']);
+
+    if (empty($user_name)) {
+        $em = "User name is required";
+        header("Location: ../login.php?error=$em");
+        exit();
+    }else if (empty($password)) {
+        $em = "Password name is required";
+        header("Location: ../login.php?error=$em");
+        exit();
+    }
+
 } else {
-    $em = "unknown error occurred";
+    $em = "Unknown error occurred";
     header("Location: ../login.php?error=$em");
     exit();
 }
