@@ -11,7 +11,20 @@
 
 <body class="login-body">
     <form method="POST" action="app/login.php" class="shadow p-4">
+
         <h3 class="display-4">LOGIN</h3>
+        <?php if(isset($_GET['error'])) {?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo stripcsLashes($_GET['error']); ?>
+            </div>
+        <?php }  ?>
+
+        <?php if(isset($_GET['success'])) {?>
+            <div class="alert alert-success" role="alert">
+                <?php echo stripcslashes($_GET['success']); ?>
+            </div>
+        <?php }  ?>
+        
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">User name</label>
             <input type="email" class="form-control" name="user_name">
