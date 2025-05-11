@@ -21,7 +21,7 @@
         <nav class="side-bar">
             <div class="user-p">
                 <img src="img/user.jpg" alt="">
-                <h4>@user</h4>
+                <h4>user</h4>
             </div>
             <?php
                 $user = "admin";
