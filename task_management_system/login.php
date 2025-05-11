@@ -27,7 +27,7 @@
         
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">User name</label>
-            <input type="email" class="form-control" name="user_name">
+            <input type="text" class="form-control" name="user_name">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
