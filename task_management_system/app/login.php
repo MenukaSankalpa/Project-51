@@ -22,9 +22,9 @@ if(isset($_POST['user_name']) && isset($_POST['password'])) {
         exit();
     }else {
 
-        $sql = "SELECT * FROM user WHERE username = ?";
+        $sql = "SELECT * FROM users WHERE username = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute($user_name);
+        $stmt->execute([$user_name]);
 
         if ($stmt->rowCount() == 1) {
             $user = $stmt->fetch();
