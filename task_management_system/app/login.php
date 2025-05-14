@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(isset($_POST['user_name']) && isset($_POST['password'])) {
     include "../DB_connection.php";
     function validate_input($data) {
@@ -32,6 +31,7 @@ if(isset($_POST['user_name']) && isset($_POST['password'])) {
             $usernameDb = $user['username'];
             $passwordDb = $user['password'];
             $role = $user['role'];
+            $id = $user['id'];
 
             if ($user_name === $usernameDb) {
                 if (password_verify($password, $passwordDb)) {
@@ -40,7 +40,7 @@ if(isset($_POST['user_name']) && isset($_POST['password'])) {
                         $_SESSION['id'] = $id;
                         $_SESSION['username'] = $usernameDb;
                         header("Location: ../index.php");
-                    }else if ($role == "employee") {
+                    }elseif ($role == "employee") {
                         $_SESSION['role'] = $role;
                         $_SESSION['id'] = $id;
                         $_SESSION['username'] = $usernameDb;

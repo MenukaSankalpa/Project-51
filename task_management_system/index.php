@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +27,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
         <nav class="side-bar">
             <div class="user-p">
                 <img src="img/user.jpg" alt="">
-                <h4>user</h4>
+                <h4>@user</h4>
             </div>
             <?php
                 $user = "admin";
@@ -126,8 +128,8 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     </div>
 </body>
 </html>
-<?php }else{
-    $em = "First login";
+<?php } else {
+    $em = "first login";
     header("Location: login.php?error=$em");
     exit();
 }
