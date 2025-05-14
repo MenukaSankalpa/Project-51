@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if(isset($_POST['user_name']) && isset($_POST['password'])) {
     include "../DB_connection.php";
@@ -66,6 +67,4 @@ if(isset($_POST['user_name']) && isset($_POST['password'])) {
     header("Location: ../login.php?error=$em");
     exit();
 }
-
-
 ?>

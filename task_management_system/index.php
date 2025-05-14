@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,7 @@
 <body>
     <input type="checkbox" name="" id="checkbox">
     <header class="header">
-        <h2 class="u-name">SIDE <b>BAR</b>
+        <h2 class="u-name">Task <b>Pro</b>
             <label for="checkbox">
                 <i id="navbtn" class="ri-menu-line"></i>
             </label>
@@ -122,3 +126,9 @@
     </div>
 </body>
 </html>
+<?php }else{
+    $em = "First login";
+    header("Location: login.php?error=$em");
+    exit();
+}
+?>
