@@ -87,7 +87,7 @@
     background: #127b8e;
 }
 .side-bar .active {
-    background: #127b8e;
+    background-color: #127b8e !important;
 }
 .side-bar ul li a{
     text-decoration: none;
