@@ -1,3 +1,4 @@
+
 <nav class="side-bar">
             <div class="user-p">
                 <img src="img/user.jpg" alt="">
@@ -54,7 +55,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="user.php">
                         <i class="ri-group-fill"></i>
                         <span>Manage Users</span>
