@@ -1,12 +1,10 @@
 <nav class="side-bar">
             <div class="user-p">
                 <img src="img/user.jpg" alt="">
-                <h4>@user</h4>
+                <h4>@<?=$_SESSION['username']?></h4>
             </div>
             <?php
-                $user = "admin";
-
-                if($user == "employee"){
+                if($_SESSION['role']== "employee"){
             ?>
             <!-- Employee Navigation Bar-->
             <ul>
@@ -34,6 +32,12 @@
                         <span>Notifications</span>
                     </a>
                 </li>
+                <!--<li>
+                    <a href="#">
+                        <i class="ri-settings-fill"></i>
+                        <span>Setting</span>
+                    </a>
+                </li>-->
                 <li>
                     <a href="#">
                         <i class="ri-logout-circle-fill"></i>
@@ -68,6 +72,12 @@
                         <span>All Task</span>
                     </a>
                 </li>
+                <!--<li>
+                    <a href="#">
+                        <i class="ri-settings-fill"></i>
+                        <span>Setting</span>
+                    </a>
+                </li>-->
                 <li>
                     <a href="#">
                         <i class="ri-notification-3-fill"></i>
@@ -75,7 +85,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="logout.php">
                         <i class="ri-logout-circle-fill"></i>
                         <span>Logout</span>
                     </a>
