@@ -39,7 +39,7 @@
                     </a>
                 </li>-->
                 <li>
-                    <a href="#">
+                    <a href="logout.php">
                         <i class="ri-logout-circle-fill"></i>
                         <span>Logout</span>
                     </a>
@@ -55,19 +55,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="user.php">
                         <i class="ri-group-fill"></i>
                         <span>Manage Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="create_task.php">
                         <i class="ri-add-circle-fill"></i>
                         <span>Create Task</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="task.php">
                         <i class="ri-task-fill"></i>
                         <span>All Task</span>
                     </a>
@@ -79,7 +79,7 @@
                     </a>
                 </li>-->
                 <li>
-                    <a href="#">
+                    <a href="notifications.php">
                         <i class="ri-notification-3-fill"></i>
                         <span>Notifications</span>
                     </a>
