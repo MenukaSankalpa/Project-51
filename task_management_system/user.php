@@ -1,8 +1,6 @@
 <?php
 session_start();
-
 if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,15 +17,49 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     <div class="body">
         <?php include "inc/nav.php"?>
         <section class="section-1">
-            <!--<h1>WELCOME</h1>
-            <P>#Project Task Management System</P>-->
             Manage Users
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>@social</td>
+                  </tr>
+                </tbody>
+            </table>
         </section>
     </div>
+
+<script>
+    var active = document.querySelector("#navList li:nth-child(2)");
+    active.classList.add("active");
+</script>
+
 </body>
 </html>
 <?php } else {
-    $em = "first login";
+    $em = "First login";
     header("Location: login.php?error=$em");
     exit();
 }
