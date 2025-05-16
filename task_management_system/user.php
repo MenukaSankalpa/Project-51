@@ -1,6 +1,9 @@
 <?php
 session_start();
 if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
+    include "DB_connection.php";
+    include "app/Model/User.php";
+    $users = get_all_users($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
