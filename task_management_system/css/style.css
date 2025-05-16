@@ -86,8 +86,17 @@
 .side-bar ul li:hover{
     background: #127b8e;
 }
-.side-bar .active {
-    background-color: #127b8e !important;
+/*.side-bar .active {
+    background: #127b8e !important;
+}*/
+.side-bar .active a{
+    color: #127b8e !important;
+}
+.side-bar .active a i {
+    color: #127b8e !important;
+}
+.side-bar ul .active:hover{
+    background: transparent;
 }
 .side-bar ul li a{
     text-decoration: none;

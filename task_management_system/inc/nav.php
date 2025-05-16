@@ -48,7 +48,7 @@
             </ul>
         <?php } else { ?>
             <!-- Admin Navigation Bar-->
-            <ul>
+            <ul id="navList">
                 <li>
                     <a href="#">
                         <i class="ri-macbook-fill"></i>
