@@ -19,8 +19,21 @@ session_start();
         <?php include "inc/nav.php"?>
         <section class="section-1">
             <h4 class="title">Add Users <a href="user.php">Users</a></h4>
-            <form action="">
+            <form class="form-1">
+                <div class="input-holder">
+                    <label for="">Full Name</label>
+                    <input type="text" class="input-1" placeholder="Full Name"><br><br>
+                </div>
+                <div class="input-holder">
+                    <label for="">Username</label>
+                    <input type="text" class="input-1" placeholder="Username"><br><br>
+                </div>
+                <div class="input-holder">
+                    <label for="">Password</label>
+                    <input type="text" class="input-1" placeholder="Password"><br><br>
+                </div>
             </form>
+            <button class=".edit-btn">Add</button>
         </section>
     </div>
 <script>
