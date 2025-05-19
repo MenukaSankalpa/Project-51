@@ -209,3 +209,23 @@
 .delete-btn:hover{
     opacity: .6;
 }
+.form-1{
+    width: 90%;
+    max-width: 700px;
+}
+.input-holder label{
+    display: block;
+    margin-bottom: 5px;
+}
+.input-1{
+    border: 2px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    border-radius: 5px;
+    display: block;
+}
+.input-1:focus{
+    border-color: #555;
+}
