@@ -20,6 +20,21 @@ session_start();
         <section class="section-1">
             <h4 class="title">Add Users <a href="user.php">Users</a></h4>
             <form class="form-1" method="POST" action="app/add-user.php">
+            <?php if (isset($_GET['error'])) {?>
+            <div class="danger" role="alert">
+            <?php echo stripcslashes($_GET['error']); ?>
+            </div>
+        <?php }  ?>
+
+        <?php if (isset($_GET['success'])) {?>
+            <div class="success" role="alert">
+                <?php echo stripslashes($_GET['success']); ?>
+            </div>
+        <?php }
+            /*$pass = 123;
+            $pass = password_hash($pass,PASSWORD_DEFAULT);
+            echo $pass;*/
+        ?>
                 <div class="input-holder">
                     <label for="">Full Name</label>
                     <input type="text" name="full_name"  class="input-1" placeholder="Full Name"><br><br>
