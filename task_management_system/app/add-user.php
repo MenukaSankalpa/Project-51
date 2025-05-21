@@ -24,57 +24,25 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
         $em = "Password name is required";
         header("Location: ../login.php?error=$em");
         exit();
+    }else if (empty($full_name)) {
+        $em = "Full name is required";
+        header("Location: ../login.php?error=$em");
+        exit();
     }else {
 
-        $sql = "SELECT * FROM users WHERE username = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$user_name]);
+        include "Model/User.php";
+        $data = array($full_name, $user_name, $password);
+        insert_user($conn, $data);
 
-        if ($stmt->rowCount() == 1) {
-            $user = $stmt->fetch();
-            $usernameDb = $user['username'];
-            $passwordDb = $user['password'];
-            $role = $user['role'];
-            $id = $user['id'];
-
-            if ($user_name === $usernameDb) {
-                if (password_verify($password, $passwordDb)) {
-                    if ($role == "admin") {
-                        $_SESSION['role'] = $role;
-                        $_SESSION['id'] = $id;
-                        $_SESSION['username'] = $usernameDb;
-                        header("Location: ../index.php");
-                    }elseif ($role == "employee") {
-                        $_SESSION['role'] = $role;
-                        $_SESSION['id'] = $id;
-                        $_SESSION['username'] = $usernameDb;
-                        header("Location: ../index.php");
-                    }else {
-                        $em = "Unknown error occurred";
-                        header("Location: ../login.php?error=$em");
-                        exit();
-                    }
-                }else {
-                    $em = "Incorrect username or password";
-                    header("Location: ../login.php?error=$em");
-                    exit();
-                }
-            }else {
-                $em = "Incorrect username or password";
-                header("Location: ../login.php?error=$em");
-                exit();
-            }
-        }
     }
 } else {
     $em = "Unknown error occurred";
-    header("Location: ../login.php?error=$em");
-    exit();
-}
+    header("Location: ../add-user.php?error=$em");
+    exitadd-user
  
 }else{
     $em = "First login";
-    header("Location: ../login.php?error=$em");
+    header("Location: ../add-user.php?error=$em");
     exit();
 }
 
