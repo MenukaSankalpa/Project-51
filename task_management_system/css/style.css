@@ -229,3 +229,14 @@
 .input-1:focus{
     border-color: #555;
 }
+.danger{
+    background: #FF98AA;
+    color: #B20008;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.success{
+    background: #009D22;
+    color: #B20008;
+    padding: 10px;
+}
