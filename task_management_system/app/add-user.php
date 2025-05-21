@@ -39,7 +39,7 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
     $em = "Unknown error occurred";
     header("Location: ../add-user.php?error=$em");
     exitadd-user
- 
+
 }else{
     $em = "First login";
     header("Location: ../add-user.php?error=$em");
