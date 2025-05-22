@@ -18,32 +18,36 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
 
     if (empty($user_name)) {
         $em = "User Name Required";
-        header("Location: ../login.php?error=$em");
+        header("Location: ../add-user.php?error=$em");
         exit();
     }else if (empty($password)) {
         $em = "Password name is required";
-        header("Location: ../login.php?error=$em");
+        header("Location: ../add-user.php?error=$em");
         exit();
     }else if (empty($full_name)) {
         $em = "Full name is required";
-        header("Location: ../login.php?error=$em");
+        header("Location: ../add-user.php?error=$em");
         exit();
     }else {
+
+        $sql = "INSERT INTO * FROM users WHERE username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$user_name]);
 
         include "Model/User.php";
         $data = array($full_name, $user_name, $password);
         insert_user($conn, $data);
-
+        $sm = "User added successfully";
+        header("Location: ../add-user.php?error=$em");
+        exit();
     }
 } else {
-    $em = "Unknown error occurred";
-    header("Location: ../add-user.php?error=$em");
-    exitadd-user
-
-}else{
     $em = "First login";
     header("Location: ../add-user.php?error=$em");
     exit();
 }
-
-?>
+}else{
+    $em= "First login";
+    header("Location: ../login.php?error=$em");
+    exit();
+}
