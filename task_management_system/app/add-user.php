@@ -30,16 +30,13 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
         exit();
     }else {
 
-        $sql = "INSERT INTO * FROM users WHERE username = ?";
+        /*$sql = "INSERT INTO * FROM users WHERE username = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$user_name]);
+        $stmt->execute([$user_name]);*/
 
         include "Model/User.php";
         $data = array($full_name, $user_name, $password);
         insert_user($conn, $data);
-        $sm = "User added successfully";
-        header("Location: ../add-user.php?error=$em");
-        exit();
     }
 } else {
     $em = "First login";
@@ -48,6 +45,6 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
 }
 }else{
     $em= "First login";
-    header("Location: ../login.php?error=$em");
+    header("Location: ../add-user.php?error=$em");
     exit();
 }
