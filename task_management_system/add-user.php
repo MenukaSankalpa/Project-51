@@ -13,17 +13,19 @@ session_start();
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
-    <input type="checkbox" name="" id="checkbox">
-    <?php include "inc/header.php"?>
+    <input type="checkbox" id="checkbox">
+    <?php include "inc/header.php" ?>
     <div class="body">
         <?php include "inc/nav.php"?>
         <section class="section-1">
             <h4 class="title">Add Users <a href="user.php">Users</a></h4>
-            <form class="form-1" method="POST" action="app/add-user.php">
-            <?php if (isset($_GET['error'])) {?>
+            <form  class="form-1"
+                    method="POST" 
+                    action="app/add-user.php">
+                    <?php if (isset($_GET['error'])) {?>
             <div class="danger" role="alert">
             <?php echo stripcslashes($_GET['error']); ?>
-            </div>
+        </div>
         <?php }  ?>
 
         <?php if (isset($_GET['success'])) {?>
@@ -55,8 +57,6 @@ session_start();
     var active = document.querySelector("#navList li:nth-child(2)");
     active.classList.add("active");
 </script>
-
 </body>
 </html>
-
 ?>
