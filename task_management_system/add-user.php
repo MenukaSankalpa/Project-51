@@ -19,14 +19,12 @@ session_start();
         <?php include "inc/nav.php"?>
         <section class="section-1">
             <h4 class="title">Add Users <a href="user.php">Users</a></h4>
-            <form  class="form-1"
-                    method="POST" 
-                    action="app/add-user.php">
-                    <?php if (isset($_GET['error'])) {?>
-            <div class="danger" role="alert">
-            <?php echo stripcslashes($_GET['error']); ?>
-        </div>
-        <?php }  ?>
+            <form  class="form-1" method="POST" action="../task_management_system/app/add-user.php">
+            <?php if (isset($_GET['error'])) {?>
+                <div class="danger" role="alert">
+                    <?php echo stripcslashes($_GET['error']); ?>
+                </div>
+            <?php }  ?>
 
         <?php if (isset($_GET['success'])) {?>
             <div class="success" role="alert">
@@ -50,7 +48,7 @@ session_start();
                     <input type="text" name="password" class="input-1" placeholder="Password"><br><br>
                 </div>
             </form>
-            <button class="edit-btn">Add</button>
+            <button type="submit" class="edit-btn">Add</button>
         </section>
     </div>
 <script>
