@@ -47,8 +47,10 @@ session_start();
                     <label for="">Password</label>
                     <input type="text" name="password" class="input-1" placeholder="Password"><br><br>
                 </div>
+
+                <button type="submit" class="edit-btn">Add</button>
             </form>
-            <button type="submit" class="edit-btn">Add</button>
+            
         </section>
     </div>
 <script>
