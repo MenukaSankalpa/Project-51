@@ -35,9 +35,13 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
         $stmt->execute([$user_name]);*/
 
         include "Model/User.php";
-        $data = array($full_name, $user_name, $password);
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $data = array($full_name, $user_name, $password, "employee");
         insert_user($conn, $data);
         
+        $em = "User created successfully";
+        header("Location: ../add-user.php?error=$em");
+        exit();
     }
 } else {
     $em = "First login";
