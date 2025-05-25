@@ -17,11 +17,11 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
     $full_name = validate_input($_POST['full_name']);
 
     if (empty($user_name)) {
-        $em = "User Name Required";
+        $em = "User Name is Required";
         header("Location: ../add-user.php?error=$em");
         exit();
     }else if (empty($password)) {
-        $em = "Password name is required";
+        $em = "Password is required";
         header("Location: ../add-user.php?error=$em");
         exit();
     }else if (empty($full_name)) {
@@ -37,6 +37,7 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
         include "Model/User.php";
         $data = array($full_name, $user_name, $password);
         insert_user($conn, $data);
+        
     }
 } else {
     $em = "First login";
