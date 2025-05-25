@@ -1,5 +1,16 @@
 <?php
 session_start();
+if (isset($_SESSION['role']) && isset($_SESSION['id'])){
+    include "DB_connection.php";
+    include "app/Model/User.php";
+
+    if (!isset($_GET['id'])){
+        header("Location: user.php");
+        exit();
+    }
+    $id = $_GET['id'];
+    $users = get_user_by_id($conn, $id);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
