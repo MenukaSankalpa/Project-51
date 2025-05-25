@@ -230,13 +230,14 @@
     border-color: #555;
 }
 .danger{
-    background: #FF98AA;
-    color: #B20008;
+    background: #e9b6bf;
+    color: #000000;
     padding: 10px;
     margin-bottom: 10px;
 }
 .success{
-    background: #009D22;
-    color: #B20008;
+    background: #7de994;
+    color: #050505;
     padding: 10px;
+    margin-bottom: 10px;
 }
