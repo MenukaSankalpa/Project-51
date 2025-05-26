@@ -11,6 +11,11 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
     $id = $_GET['id'];
     $user = get_user_by_id($conn, $id);
     //print_r($user['username']);
+
+    if ($user == 0){
+        header("Location: user.php");
+        exit();
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -31,7 +36,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
         <?php include "inc/nav.php"?>
         <section class="section-1">
             <h4 class="title">Edit Users <a href="user.php">Users</a></h4>
-            <form  class="form-1" method="POST" action="../task_management_system/app/add-user.php">
+            <form  class="form-1" method="POST" action="../task_management_system/app/update-user.php">
             <?php if (isset($_GET['error'])) {?>
                 <div class="danger" role="alert">
                     <?php echo stripcslashes($_GET['error']); ?>
@@ -59,10 +64,9 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
                     <label for="">Password</label>
                     <input type="text" name="password" value="********" class="input-1" placeholder="Password"><br><br>
                 </div>
-
+                <input type="text" name="id" value="<?= $user['id']?>" hidden>
                 <button type="submit" class="edit-btn">Update</button>
             </form>
-            
         </section>
     </div>
 <script>
