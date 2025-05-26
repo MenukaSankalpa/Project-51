@@ -9,7 +9,8 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
         exit();
     }
     $id = $_GET['id'];
-    $users = get_user_by_id($conn, $id);
+    $user = get_user_by_id($conn, $id);
+    //print_r($user['username']);
 }
 ?>
 <!DOCTYPE html>
@@ -48,18 +49,18 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
         ?>
                 <div class="input-holder">
                     <label for="">Full Name</label>
-                    <input type="text" name="full_name"  class="input-1" placeholder="Full Name"><br><br>
+                    <input type="text" name="full_name"  value="<?= $user['full_name']?>" class="input-1" placeholder="Full Name"><br><br>
                 </div>
                 <div class="input-holder">
                     <label for="">Username</label>
-                    <input type="text" name="user_name" class="input-1" placeholder="Username"><br><br>
+                    <input type="text" name="user_name" value="<?= $user['username']?>" class="input-1" placeholder="Username"><br><br>
                 </div>
                 <div class="input-holder">
                     <label for="">Password</label>
-                    <input type="text" name="password" class="input-1" placeholder="Password"><br><br>
+                    <input type="text" name="password" value="********" class="input-1" placeholder="Password"><br><br>
                 </div>
 
-                <button type="submit" class="edit-btn">Add</button>
+                <button type="submit" class="edit-btn">Update</button>
             </form>
             
         </section>
