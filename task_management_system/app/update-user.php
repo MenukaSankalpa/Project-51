@@ -19,15 +19,15 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
 
     if (empty($user_name)) {
         $em = "User Name is Required";
-        header("Location: ../edit-user.php?error=$em$id=$id");
+        header("Location: ../edit-user.php?error=$em&id=$id");
         exit();
     }else if (empty($password)) {
         $em = "Password is required";
-        header("Location: ../edit-user.php?error=$em$id=$id");
+        header("Location: ../edit-user.php?error=$em&id=$id");
         exit();
     }else if (empty($full_name)) {
         $em = "Full name is required";
-        header("Location: ../edit-user.php?error=$em$id=$id");
+        header("Location: ../edit-user.php?error=$em&id=$id");
         exit();
     }else {
 
@@ -41,7 +41,7 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
         update_user($conn, $data);
         
         $em = "User created successfully";
-        header("Location: ../edit-user.php?error=$em$id=$id");
+        header("Location: ../edit-user.php?error=$em&id=$id");
         exit();
     }
 } else {
