@@ -1,0 +1,25 @@
+<?php
+session_start();
+if (isset($_SESSION['role']) && isset($_SESSION['id'])){
+    include "DB_connection.php";
+    include "app/Model/User.php";
+
+    if (!isset($_GET['id'])){
+        header("Location: user.php");
+        exit();
+    }
+    $id = $_GET['id'];
+    $user = get_user_by_id($conn, $id);
+    //print_r($user['username']);
+
+    if (!isset($_GET['id'])){
+        header("Location: user.php");
+        exit();
+    }
+
+    
+} else {
+    $em = "First login";
+    header("Location: login.php?error=$em");
+    exit();
+}?>
