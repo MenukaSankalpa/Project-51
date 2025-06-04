@@ -12,18 +12,11 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
     $user = get_user_by_id($conn, $id);
     //print_r($user['username']);
 
-    if ($user == 0){
+    if (!isset($_GET['id'])){
         header("Location: user.php");
         exit();
     }
-    $data = array($id, "employee");
-    delete_user($conn, $data);
-    $sm = "Delete Successfully";
-    header("Location: user.php?success=$em");
-    exit();
+} else {}
 
-} else {
-    $em = "First login";
-    header("Location: login.php?error=$em");
-    exit();
-}?>
+
+?>
