@@ -4,6 +4,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     include "DB_connection.php";
     include "app/Model/User.php";
     $users = get_all_users($conn);
+print_r($users);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +41,23 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
             echo $pass;*/
         ?>
                 <div class="input-holder">
-                    <label for="">Full Name</label>
-                    <input type="text" name="full_name"  class="input-1" placeholder="Full Name"><br><br>
+                    <label for="">Title</label>
+                    <input type="text" name="title"  class="input-1" placeholder="Title Name"><br>
+                </div>
+                <div class="input-holder">
+                    <label for="">Description</label>
+                    <textarea type="text" name="description"  class="input-1" placeholder="Description"></textarea><br>
+                </div>
+                <div class="input-holder">
+                    <label for="">Assigned to</label>
+                    <select name="assigned_to" class="input-1">
+                        <option value="0">Select Employee</option>
+                        <?php if ($users !=0) {
+                            foreach ($users as $user){
+                        ?>
+                        <option value="0">Select Employee</option>
+                        <?php } }?>
+                    </select><br>
                 </div>
 
                 <button type="submit" class="edit-btn">Create Task</button>
