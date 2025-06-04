@@ -30,7 +30,7 @@ function update_user($conn, $data){
     $stmt->execute($data);
 }
 function delete_user($conn, $data){
-    $sql = "DELETE users WHERE id=? AND role=?";
+    $sql = "DELETE FROM users WHERE id=? AND role=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
 }
