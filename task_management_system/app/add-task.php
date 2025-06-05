@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['role']) && isset($_SESSION['id'])){
 
 
-if(isset($_POST['title']) && isset($_POST['description']) &&  isset($_POST['full_name']) && $_SESSION['role'] == 'admin' ) {
+if(isset($_POST['title']) && isset($_POST['description']) &&  isset($_POST['assigned_to']) && $_SESSION['role'] == 'admin' ) {
     include "../DB_connection.php";
     function validate_input($data) {
         $data = trim($data);
@@ -12,21 +12,17 @@ if(isset($_POST['title']) && isset($_POST['description']) &&  isset($_POST['full
         return $data;
     }
 
-    $user_name = validate_input($_POST['user_name']);
-    $password = validate_input($_POST['password']);
-    $full_name = validate_input($_POST['full_name']);
+    $title = validate_input($_POST['user_name']);
+    $description = validate_input($_POST['description']);
+    $assigned_to = validate_input($_POST['assigned_to']);
 
-    if (empty($user_name)) {
-        $em = "User Name is Required";
-        header("Location: ../add-user.php?error=$em");
+    if (empty($title)) {
+        $em = "Title is Required";
+        header("Location: ../create_task.php?error=$em");
         exit();
-    }else if (empty($password)) {
-        $em = "Password is required";
-        header("Location: ../add-user.php?error=$em");
-        exit();
-    }else if (empty($full_name)) {
-        $em = "Full name is required";
-        header("Location: ../add-user.php?error=$em");
+    }else if (empty($description)) {
+        $em = "Description is required";
+        header("Location: ../create_task.php?error=$em");
         exit();
     }else {
 
@@ -34,22 +30,22 @@ if(isset($_POST['title']) && isset($_POST['description']) &&  isset($_POST['full
         $stmt = $conn->prepare($sql);
         $stmt->execute([$user_name]);*/
 
-        include "Model/User.php";
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $data = array($full_name, $user_name, $password, "employee");
-        insert_user($conn, $data);
+        include "Model/Task.php";
+        //$password = password_hash($password, PASSWORD_DEFAULT);
+        $data = array($title, $description, $assigned_to);
+        insert_task($conn, $data);
         
-        $em = "User created successfully";
+        /* $em = "User created successfully";
         header("Location: ../add-user.php?error=$em");
-        exit();
+        exit();*/
     }
 } else {
     $em = "First login";
-    header("Location: ../add-user.php?error=$em");
+    header("Location: ../create-task.php?error=$em");
     exit();
 }
 }else{
     $em= "First login";
-    header("Location: ../add-user.php?error=$em");
+    header("Location: ../create-task.php?error=$em");
     exit();
 }
