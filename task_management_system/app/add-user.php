@@ -44,7 +44,7 @@ if(isset($_POST['user_name']) && isset($_POST['password']) &&  isset($_POST['ful
         exit();
     }
 } else {
-    $em = "First login";
+    $em = "Uknown error occurred";
     header("Location: ../add-user.php?error=$em");
     exit();
 }
