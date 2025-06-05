@@ -4,7 +4,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     include "DB_connection.php";
     include "app/Model/User.php";
     $users = get_all_users($conn);
-print_r($users);
+//print_r($users);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@ print_r($users);
         <?php include "inc/nav.php"?>
         <section class="section-1">
             <h4 class="title">Create Task</h4>
-            <form  class="form-1" method="POST" action="../task_management_system/app/add-user.php">
+            <form  class="form-1" method="POST" action="../task_management_system/app/add-task.php">
             <?php if (isset($_GET['error'])) {?>
                 <div class="danger" role="alert">
                     <?php echo stripcslashes($_GET['error']); ?>
@@ -55,7 +55,7 @@ print_r($users);
                         <?php if ($users !=0) {
                             foreach ($users as $user){
                         ?>
-                        <option value="0">Select Employee</option>
+                        <option value="<?=$user['id']?>"><?=$user['full_name']?></option>
                         <?php } }?>
                     </select><br>
                 </div>
