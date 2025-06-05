@@ -35,17 +35,17 @@ if(isset($_POST['title']) && isset($_POST['description']) &&  isset($_POST['assi
         $data = array($title, $description, $assigned_to);
         insert_task($conn, $data);
         
-        /* $em = "User created successfully";
-        header("Location: ../add-user.php?error=$em");
-        exit();*/
+        $em = "Task created successfully";
+        header("Location: ../create_task.php?success=$em");
+        exit();
     }
 } else {
-    $em = "First login";
-    header("Location: ../create-task.php?error=$em");
+    $em = "Unknown error occurred";
+    header("Location: ../create_task.php?error=$em");
     exit();
 }
 }else{
     $em= "First login";
-    header("Location: ../create-task.php?error=$em");
+    header("Location: ../create_task.php?error=$em");
     exit();
 }
