@@ -7,13 +7,13 @@ function insert_task($conn, $data){
 }
 
 function get_all_tasks($conn){
-    $sql = "SELECT * FROM users WHERE role=? ";
+    $sql = "SELECT * FROM tasks";
     $stmt = $conn->prepare($sql);
-    $stmt->execute(["employee"]);
+    $stmt->execute([]);
 
     if($stmt->rowCount() > 0){
-       $users = $stmt->fetchAll();
-    }else $users = 0;
+       $tasks = $stmt->fetchAll();
+    }else $tasks= 0;
 
-    return  $users;
+    return  $tasks;
 }
