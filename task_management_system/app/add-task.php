@@ -12,7 +12,7 @@ if(isset($_POST['title']) && isset($_POST['description']) &&  isset($_POST['assi
         return $data;
     }
 
-    $title = validate_input($_POST['user_name']);
+    $title = validate_input($_POST['title']);
     $description = validate_input($_POST['description']);
     $assigned_to = validate_input($_POST['assigned_to']);
 
