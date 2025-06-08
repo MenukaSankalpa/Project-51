@@ -3,7 +3,10 @@ session_start();
 if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     include "DB_connection.php";
     include "app/Model/Task.php";
+    include "app/Model/User.php";
     $tasks = get_all_tasks($conn);
+    $users = get_all_users($conn);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +37,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                     <th>#</th>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>role</th>
+                    <th>Assigned To</th>
                     <th>Action</th>
                 </tr>
                 <?php $i=0; foreach($tasks as $task) { ?>
