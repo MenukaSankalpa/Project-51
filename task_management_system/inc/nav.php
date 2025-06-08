@@ -16,19 +16,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="my_Task.php">
                         <i class="ri-file-list-fill"></i>
                         <span>My Task</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="profile.php">
                         <i class="ri-message-2-fill"></i>
                         <span>Profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="notifications.php">
                         <i class="ri-notification-3-fill"></i>
                         <span>Notifications</span>
                     </a>
