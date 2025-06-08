@@ -45,7 +45,13 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                     <td><?=++$i?></td>
                     <td><?=$task['title']?></td>
                     <td><?=$task['description']?></td>
-                    <td><?=$task['assigned_to']?></td>
+                    <td>
+                        <?php
+                        foreach ($users as $user) {
+                        if($user['id'] == $task['assigned_to']) {
+                            echo $user['full_name'];
+                        }}?>
+                    </td>
                     <td>
                         <a href="edit-task.php?id=<?=$task['id']?>" class="edit-btn" >Edit</a>
                         <a href="delete-task.php?id=<?=$task['id']?>" class="delete-btn" >Delete</a>
