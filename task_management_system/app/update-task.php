@@ -19,15 +19,15 @@ if(isset($_POST['id']) && isset($_POST['title']) && isset($_POST['description'])
 
     if (empty($title)) {
         $em = "Title is Required";
-        header("Location: ../edit_task.php?error=$em&id=$id");
+        header("Location: ../edit-task.php?error=$em&id=$id");
         exit();
     }else if (empty($description)) {
         $em = "Description is required";
-        header("Location: ../edit_task.php?error=$em&id=$id");
+        header("Location: ../edit-task.php?error=$em&id=$id");
         exit();
     }else if ($assigned_to == 0) {
         $em = "Select User";
-        header("Location: ../edit_task.php?error=$em&id=$id");
+        header("Location: ../edit-task.php?error=$em&id=$id");
         exit();
     }else {
         
@@ -42,12 +42,12 @@ if(isset($_POST['id']) && isset($_POST['title']) && isset($_POST['description'])
         update_task($conn, $data);
         
         $em = "Task updated successfully";
-        header("Location: ../edit_task.php?success=$em&id=$id");
+        header("Location: ../edit-task.php?success=$em&id=$id");
         exit();
     }
 } else {
     $em = "Unknown error occurred";
-    header("Location: ../edit_task.php?error=$em");
+    header("Location: ../edit-task.php?error=$em");
     exit();
 }
 }else{
