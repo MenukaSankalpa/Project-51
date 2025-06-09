@@ -5,7 +5,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
     include "app/Model/Task.php";
 
     if (!isset($_GET['id'])){
-        header("Location: tasks.php");
+        header("Location: task.php");
         exit();
     }
     $id = $_GET['id'];
@@ -13,14 +13,14 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
     //print_r($user['username']);
 
     if ( $task == 0){
-        header("Location: tasks.php");
+        header("Location: task.php");
         exit();
     }
 
     $data = array($id);
     delete_task($conn, $data);
     $sm = "Delete Successfully";
-    header("Location: tasks.php?success=$sm");
+    header("Location: task.php?success=$sm");
     exit();
 
 
