@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['role']) && isset($_SESSION['id'])){
+if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 'admin')) {
     include "DB_connection.php";
     include "app/Model/Task.php";
     include "app/Model/User.php";
@@ -18,6 +18,9 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])){
         exit();
     }
     $users = get_all_users($conn);
+} else {
+    header("Location: login.php?error=Please+log+in+first");
+    exit();
 }
 ?>
 <!DOCTYPE html>
