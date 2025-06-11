@@ -8,7 +8,7 @@
                 if($_SESSION['role']== "employee"){
             ?>
             <!-- Employee Navigation Bar-->
-            <ul>
+            <ul id="navList">
                 <li>
                     <a href="#">
                         <i class="ri-macbook-fill"></i>
@@ -16,7 +16,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="my_Task.php">
+                    <a href="my_task.php">
                         <i class="ri-file-list-fill"></i>
                         <span>My Task</span>
                     </a>
