@@ -40,6 +40,12 @@ function update_task($conn, $data){
     $stmt->execute($data);
 }
 
+function update_task_status($conn, $data){
+    $sql = "UPDATE tasks SET status=? WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($data);
+}
+
 function get_all_tasks_by_id($conn, $id){
     $sql = "SELECT * FROM tasks WHERE assigned_to=?";
     $stmt = $conn->prepare($sql);
