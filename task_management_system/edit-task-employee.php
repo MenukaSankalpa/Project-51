@@ -40,8 +40,8 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
     <div class="body">
         <?php include "inc/nav.php"?>
         <section class="section-1">
-            <h4 class="title">Edit Task <a href="tasks.php">Tasks</a></h4>
-            <form  class="form-1" method="POST" action="../task_management_system/app/update-task.php">
+            <h4 class="title">Edit Task <a href="my_task.php">Tasks</a></h4>
+            <form  class="form-1" method="POST" action="../task_management_system/app/update-task-employee.php">
             <?php if (isset($_GET['error'])) {?>
                 <div class="danger" role="alert">
                     <?php echo stripcslashes($_GET['error']); ?>
@@ -65,17 +65,12 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
                     <label></label>
                     <p><b>Description: </b><?= $task['description']?></p>
                 </div><br>
-                enum('pending', 'in_progess', 'completed')
                 <div class="input-holder">
                     <label for="">Status</label>
-                    <select name="assigned_to" class="input-1">
-                        <?php if ($users !=0) {
-                            foreach ($users as $user){
-                                if ($task['assigned_to'] == $user['id']) { ?>
-                                    <option selected value="<?=$user['id']?>"><?=$user['full_name']?></option>
-                        <?php }else{ ?>
-                        <option value="<?=$user['id']?>"><?=$user['full_name']?></option>
-                        <?php } } }?>
+                    <select name="status" class="input-1">
+                        <option <?php if( $task['status'] == "pending") echo"selected"; ?>>pending</option>
+                        <option <?php if( $task['status'] == "in_progess") echo"selected"; ?>>in_progess</option>
+                        <option <?php if( $task['status'] == "completed") echo"selected"; ?>>completed</option>
                     </select><br>
                 </div>
                 <input type="text" name="id" value="<?=$task['id']?>" hidden>
