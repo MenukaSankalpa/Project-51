@@ -58,12 +58,25 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
             echo $pass;*/
         ?>
                 <div class="input-holder">
-                    <label for="">Title</label>
-                    <input type="text" name="title"  value="<?= $task['title']?>" class="input-1" placeholder="Task Name"><br><br>
+                    <label></label>
+                    <p><b>Title: </b><?= $task['title']?></p>
                 </div>
                 <div class="input-holder">
-                    <label for="">Description</label>
-                    <textarea name="description" rows="5" class="input-1"><?= $task['description']?></textarea><br><br>
+                    <label></label>
+                    <p><b>Description: </b><?= $task['description']?></p>
+                </div><br>
+                enum('pending', 'in_progess', 'completed')
+                <div class="input-holder">
+                    <label for="">Status</label>
+                    <select name="assigned_to" class="input-1">
+                        <?php if ($users !=0) {
+                            foreach ($users as $user){
+                                if ($task['assigned_to'] == $user['id']) { ?>
+                                    <option selected value="<?=$user['id']?>"><?=$user['full_name']?></option>
+                        <?php }else{ ?>
+                        <option value="<?=$user['id']?>"><?=$user['full_name']?></option>
+                        <?php } } }?>
+                    </select><br>
                 </div>
                 <input type="text" name="id" value="<?=$task['id']?>" hidden>
 
@@ -72,7 +85,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
         </section>
     </div>
 <script>
-    var active = document.querySelector("#navList li:nth-child(4)");
+    var active = document.querySelector("#navList li:nth-child(2)");
     active.classList.add("active");
 </script>
 </body>
