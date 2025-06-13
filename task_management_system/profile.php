@@ -5,7 +5,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
     include "app/Model/User.php";
 
     $user = get_user_by_id($conn, $_SESSION['id']);
-    print_r($user);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +25,18 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
         <?php include "inc/nav.php"?>
         <section class="section-1">
             <h4 class="title">Profile<a href="edit_profile.php">Edit Profile</a></h4>
-            <table class="main-table-2">
+            <table class="main-table" style="max-width: 300px;">
                 <tr>
                     <td>Full Name</td>
                     <td><?=$user['full_name']?></td>
+                </tr>
+                <tr>
+                    <td>User Name</td>
+                    <td><?=$user['username']?></td>
+                </tr>
+                <tr>
+                    <td>Joind At</td>
+                    <td><?=$user['created_at']?></td>
                 </tr>
             </table>
         </section>
