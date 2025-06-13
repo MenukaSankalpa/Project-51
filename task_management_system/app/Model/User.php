@@ -10,7 +10,7 @@ function get_all_users($conn){
 
     return  $users;
 }
-function insert_user($conn, $data){
+function insert_user($conn, $data){ 
     $sql = "INSERT INTO users (full_name, username, password, role) VALUES(?,?,?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute($data);
@@ -44,4 +44,10 @@ function get_user_by_id($conn, $id){
     }else $user = 0;
 
     return  $user;
+}
+
+function update_profile($conn, $data){
+    $sql = "UPDATE users SET full_name=?, password=?, role=? WHERE id=? ";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($data);
 }
