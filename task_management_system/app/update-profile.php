@@ -16,12 +16,9 @@ if(isset($_POST['confirm_password']) && isset($_POST['new_password']) && isset($
     $full_name = validate_input($_POST['full_name']);
     $new_password = validate_input($_POST['new_password']);
     $confirm_password = validate_input($_POST['confirm_password']);
+    $id = $_SESSION['id'];
 
-    if (empty($user_name)) {
-        $em = "User Name is Required";
-        header("Location: ../edit_profile.php?error=$em");
-        exit();
-    }else if (empty($password) || empty($new_password) || empty($confirm_password)) {
+    if (empty($password) || empty($new_password) || empty($confirm_password)) {
         $em = "Password is required";
         header("Location: ../edit_profile.php?error=$em");
         exit();
@@ -41,13 +38,13 @@ if(isset($_POST['confirm_password']) && isset($_POST['new_password']) && isset($
 
         include "Model/User.php";
 
-        $user = get_user_by_id($co);
+        $user = get_user_by_id($conn, $id);
         if ($user){
             if (password_verify($password, $user['password'])) {
             
             $new_password = password_hash($new_password, PASSWORD_DEFAULT);
 
-            $data = array($full_name, $new_password);
+            $data = array($full_name, $new_password, $id);
             update_profile($conn, $data);
             
             $em = "User created successfully";
