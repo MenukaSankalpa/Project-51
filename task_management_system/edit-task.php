@@ -66,6 +66,10 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
                     <textarea name="description" rows="5" class="input-1"><?= $task['description']?></textarea><br><br>
                 </div>
                 <div class="input-holder">
+                    <label for="">Snooze</label>
+                    <input type="date" name="due_date"  value="<?= $task['due_date']?>" class="input-1" placeholder="Snooze"><br><br>
+                </div>
+                <div class="input-holder">
                     <label for="">Assigned to</label>
                     <select name="assigned_to" class="input-1">
                         <option value="0">Select Employee</option>
@@ -90,4 +94,3 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
 </script>
 </body>
 </html>
-?>
