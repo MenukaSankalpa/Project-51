@@ -46,7 +46,11 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
                 </div>
                 <div class="input-holder">
                     <label for="">Description</label>
-                    <textarea type="text" name="description"  class="input-1" placeholder="Description"></textarea><br>
+                    <textarea type="text" name="description" class="input-1" placeholder="Description"></textarea><br>
+                </div>
+                <div class="input-holder">
+                    <label for="">Due Date</label>
+                    <input type="date" name="due_date"  class="input-1" placeholder="Due Date"><br>
                 </div>
                 <div class="input-holder">
                     <label for="">Assigned to</label>
