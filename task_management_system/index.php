@@ -1,7 +1,17 @@
 <?php
 session_start();
-
 if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
+
+    include "DB_connection.php";
+    include "app/Model/Task.php";
+    include "app/Model/User.php";
+
+    $todaydue_task = count_tasks_due_today($conn);
+    $overdue_task = count_tasks_overdue($conn);
+    $nodeadline_task = count_tasks_NoDeadline($conn);
+    $num_task = count_tasks($conn);
+    $num_users = count_users($conn);
+
 
 ?>
 <!DOCTYPE html>
@@ -11,7 +21,8 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
+
 </head>
 <body>
     <input type="checkbox" name="" id="checkbox">
@@ -19,33 +30,31 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     <div class="body">
         <?php include "inc/nav.php"?>
         <section class="section-1">
-            <!--<h1>WELCOME</h1>
-            <P>#Project Task Management System</P>-->
             <?php if ($_SESSION['role'] == "admin"){ ?>
                 <div class="dashboard">
                     <div class="dashboard-item">
                         <i class="ri-group-fill"></i>
-                        <span>5 Users</span>
+                        <span><?=$num_users?> Employee(s)</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-task-fill"></i>
+                        <span><?=$num_task?> All Tasks</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-close-fill"></i>
+                        <span><?=$overdue_task?> Overdue</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-time-fill"></i>
+                        <span><?=$nodeadline_task?> No Dead Line</span>
                     </div>
                     <div class="dashboard-item">
                         <i class="ri-group-fill"></i>
-                        <span>5 Users</span>
+                        <span><?=$todaydue_task?> Due Today</span>
                     </div>
                     <div class="dashboard-item">
-                        <i class="ri-group-fill"></i>
-                        <span>5 Users</span>
-                    </div>
-                    <div class="dashboard-item">
-                        <i class="ri-group-fill"></i>
-                        <span>5 Users</span>
-                    </div>
-                    <div class="dashboard-item">
-                        <i class="ri-group-fill"></i>
-                        <span>5 Users</span>
-                    </div>
-                    <div class="dashboard-item">
-                        <i class="ri-group-fill"></i>
-                        <span>5 Users</span>
+                        <i class="ri-notification-fill"></i>
+                        <span><?=$overdue_task?> Notifications</span>
                     </div>
                 </div>
             <?php }?>
@@ -54,7 +63,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
 <script>
     var active = document.querySelector("#navList li:nth-child(1)");
     active.classList.add("active");
-</script>    
+</script>
 </body>
 </html>
 <?php } else {
