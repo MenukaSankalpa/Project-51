@@ -56,6 +56,18 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                         <i class="ri-notification-fill"></i>
                         <span><?=$overdue_task?> Notifications</span>
                     </div>
+                    <div class="dashboard-item">
+                        <i class="ri-pass-pending-fill"></i>
+                        <span><?=$pending?> Pending</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-loop-left-fill"></i>
+                        <span><?=$in_progress?> In Progress</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-check-double-fill"></i>
+                        <span><?=$completed?> Completed</span>
+                    </div>
                 </div>
             <?php }?>
         </section>
