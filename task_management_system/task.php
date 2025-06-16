@@ -8,13 +8,13 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
     $text = "ALL Task";
     if (isset($_GET['due_date']) && $_GET['due_date'] == "Due Today"){
         $text = "Due Today";
+        $tasks = get_all_tasks_due_today($conn);
+        $num_task = count_tasks_due_today($conn);
+
     }else {
         $tasks = get_all_tasks($conn);
         $num_task = count_tasks($conn);
-        $users = get_all_users($conn);
     }
-        $tasks = get_all_tasks($conn);
-        $num_task = count_tasks($conn);
         $users = get_all_users($conn);
     
     
