@@ -4,9 +4,19 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
     include "DB_connection.php";
     include "app/Model/Task.php";
     include "app/Model/User.php";
-    $tasks = get_all_tasks($conn);
-    $num_task = count_tasks($conn);
-    $users = get_all_users($conn);
+    
+    $text = "ALL Task";
+    if (isset($_GET['due_date']) && $_GET['due_date'] == "Due Today"){
+        $text = "Due Today";
+    }else {
+        $tasks = get_all_tasks($conn);
+        $num_task = count_tasks($conn);
+        $users = get_all_users($conn);
+    }
+        $tasks = get_all_tasks($conn);
+        $num_task = count_tasks($conn);
+        $users = get_all_users($conn);
+    
     
 ?>
 <!DOCTYPE html>
@@ -28,12 +38,13 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
         <section class="section-1">
             <h4 class="title-2">
                 <a href="create_task.php" class="btn">Create Task</a>
-                <a href="">Due Today</a>
+                <a href="task.php?due_date=Due Today">Due Today</a>
                 <a href="">Due This Week</a>
                 <a href="">Overdue</a>
                 <a href="">No Deadline</a>
+                <a href="task.php">All Task</a>
             </h4>
-            <h4 class="title-2">All Tasks (<?=$num_task?>)</h4>
+            <h4 class="title-2"><?=$text?> (<?=$num_task?>)</h4>
             <?php if (isset($_GET['success'])) {?>
             <div class="success" role="alert">
                 <?php echo stripslashes($_GET['success']); ?>
