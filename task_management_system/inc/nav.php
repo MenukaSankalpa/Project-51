@@ -10,7 +10,7 @@
             <!-- Employee Navigation Bar-->
             <ul id="navList">
                 <li>
-                    <a href="#">
+                    <a href="index.php">
                         <i class="ri-macbook-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -50,7 +50,7 @@
             <!-- Admin Navigation Bar-->
             <ul id="navList">
                 <li>
-                    <a href="#">
+                    <a href="index.php">
                         <i class="ri-macbook-fill"></i>
                         <span>Dashboard</span>
                     </a>
