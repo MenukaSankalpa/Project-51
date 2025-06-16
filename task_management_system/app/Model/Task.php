@@ -56,6 +56,26 @@ function count_tasks_overdue($conn){
     return  $stmt->rowCount();
 }
 
+function get_all_tasks_NoDeadline($conn){
+    $sql = "SELECT * FROM tasks WHERE due_date IS NULL OR due_date = '0000-00-00' ORDER BY id DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    if($stmt->rowCount() > 0){
+       $tasks = $stmt->fetchAll();
+    }else $tasks= 0;
+
+    return  $tasks;
+}
+function count_tasks_NoDeadline($conn){
+    $sql = "SELECT id FROM tasks WHERE due_date IS NULL OR due_date = '0000-00-00'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return  $stmt->rowCount();
+}
+
+
 function delete_task($conn, $data){
     $sql = "DELETE FROM tasks WHERE id=? ";
     $stmt = $conn->prepare($sql);
