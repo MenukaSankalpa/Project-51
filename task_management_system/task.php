@@ -11,6 +11,16 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
         $tasks = get_all_tasks_due_today($conn);
         $num_task = count_tasks_due_today($conn);
 
+    }else if (isset($_GET['due_date']) && $_GET['due_date'] == "Overdue"){
+        $text = "Overdue";
+        $tasks = get_all_tasks_overdue($conn);
+        $num_task = count_tasks_overdue($conn);
+
+    }else if (isset($_GET['due_date']) && $_GET['due_date'] == "No Deadline"){
+        $text = "No Deadline";
+        $tasks = get_all_tasks_NoDeadline($conn);
+        $num_task = count_tasks_NoDeadline($conn);
+
     }else {
         $tasks = get_all_tasks($conn);
         $num_task = count_tasks($conn);
@@ -39,9 +49,8 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
             <h4 class="title-2">
                 <a href="create_task.php" class="btn">Create Task</a>
                 <a href="task.php?due_date=Due Today">Due Today</a>
-                <a href="">Due This Week</a>
-                <a href="">Overdue</a>
-                <a href="">No Deadline</a>
+                <a href="task.php?due_date=Overdue">Overdue</a>
+                <a href="task.php?due_date=No Deadline">No Deadline</a>
                 <a href="task.php">All Task</a>
             </h4>
             <h4 class="title-2"><?=$text?> (<?=$num_task?>)</h4>
@@ -73,7 +82,9 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && ($_SESSION['role'] == 
                             echo $user['full_name'];
                         }}?>
                     </td>
-                    <td><?=$task['due_date']?></td>
+                    <td><?php if($task['due_date'] == "") echo "No Deadline";
+                        else echo $task['due_date'];
+                    ?></td>
                     <td><?=$task['status']?></td>
                     <td>
                         <a href="edit-task.php?id=<?=$task['id']?>" class="edit-btn" >Edit</a>
