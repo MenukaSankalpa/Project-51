@@ -21,6 +21,34 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
         <section class="section-1">
             <!--<h1>WELCOME</h1>
             <P>#Project Task Management System</P>-->
+            <?php if ($_SESSION['role'] == "admin"){ ?>
+                <div class="dashboard">
+                    <div class="dashboard-item">
+                        <i class="ri-group-fill"></i>
+                        <span>5 Users</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-group-fill"></i>
+                        <span>5 Users</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-group-fill"></i>
+                        <span>5 Users</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-group-fill"></i>
+                        <span>5 Users</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-group-fill"></i>
+                        <span>5 Users</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="ri-group-fill"></i>
+                        <span>5 Users</span>
+                    </div>
+                </div>
+            <?php }?>
         </section>
     </div>
 <script>
