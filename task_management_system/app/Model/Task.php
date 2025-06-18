@@ -148,3 +148,11 @@ function count_completed_tasks($conn){
     return  $stmt->rowCount();
 }
 
+function count_my_tasks($conn, $id){
+    $sql = "SELECT id FROM tasks WHERE assigned_to=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$id]);
+
+    return  $stmt->rowCount();
+}
+
