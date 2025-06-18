@@ -123,3 +123,11 @@ function get_all_tasks_by_id($conn, $id){
 
     return  $tasks;
 }
+
+function count_pending_tasks($conn){
+    $sql = "SELECT id FROM tasks WHERE status = 'pending'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return  $stmt->rowCount();
+}
