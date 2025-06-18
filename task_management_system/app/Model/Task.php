@@ -131,3 +131,11 @@ function count_pending_tasks($conn){
 
     return  $stmt->rowCount();
 }
+
+function count_in_progress_tasks($conn){
+    $sql = "SELECT id FROM tasks WHERE status = 'in_progress'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return  $stmt->rowCount();
+}
