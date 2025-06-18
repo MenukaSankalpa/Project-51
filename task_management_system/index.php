@@ -11,6 +11,9 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     $nodeadline_task = count_tasks_NoDeadline($conn);
     $num_task = count_tasks($conn);
     $num_users = count_users($conn);
+    $pending = count_pending_tasks($conn);
+    $in_progress = count_in_progress_tasks($conn);
+    $completed = count_completed_tasks($conn);
 
 
 ?>
