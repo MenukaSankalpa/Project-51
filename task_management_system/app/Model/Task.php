@@ -139,3 +139,12 @@ function count_in_progress_tasks($conn){
 
     return  $stmt->rowCount();
 }
+
+function count_completed_tasks($conn){
+    $sql = "SELECT id FROM tasks WHERE status = 'completed'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([]);
+
+    return  $stmt->rowCount();
+}
+
