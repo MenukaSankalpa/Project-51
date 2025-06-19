@@ -19,7 +19,7 @@ function get_all_tasks($conn){
 }
 
 function get_all_tasks_due_today($conn){
-    $sql = "SELECT * FROM tasks WHERE due_date = CURDATE() ORDER BY id DESC";
+    $sql = "SELECT * FROM tasks WHERE due_date = CURDATE() AND state != 'completed' ORDER BY id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute([]);
 
@@ -30,7 +30,7 @@ function get_all_tasks_due_today($conn){
     return  $tasks;
 }
 function count_tasks_due_today($conn){
-    $sql = "SELECT id FROM tasks WHERE due_date = CURDATE()";
+    $sql = "SELECT id FROM tasks WHERE due_date = CURDATE() AND status != 'completed'";
     $stmt = $conn->prepare($sql);
     $stmt->execute([]);
 
@@ -57,7 +57,7 @@ function count_tasks_overdue($conn){
 }
 
 function get_all_tasks_NoDeadline($conn){
-    $sql = "SELECT * FROM tasks WHERE due_date IS NULL OR due_date = '0000-00-00' ORDER BY id DESC";
+    $sql = "SELECT * FROM tasks WHERE status != 'completed' AND due_date IS NULL OR due_date = '0000-00-00' ORDER BY id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute([]);
 
@@ -68,9 +68,9 @@ function get_all_tasks_NoDeadline($conn){
     return  $tasks;
 }
 function count_tasks_NoDeadline($conn){
-    $sql = "SELECT id FROM tasks WHERE due_date IS NULL OR due_date = '0000-00-00'";
+    $sql = "SELECT id FROM tasks WHERE status != 'completed' AND due_date IS NULL OR due_date = '0000-00-00'";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([]);
+    $stmt->execute([]);   
 
     return  $stmt->rowCount();
 }
@@ -133,7 +133,7 @@ function count_pending_tasks($conn){
 }
 
 function count_in_progress_tasks($conn){
-    $sql = "SELECT id FROM tasks WHERE status = 'in_progress'";
+    $sql = "SELECT id FROM tasks WHERE status = 'in_progess'";
     $stmt = $conn->prepare($sql);
     $stmt->execute([]);
 
@@ -167,8 +167,7 @@ function count_my_tasks_overdue($conn, $id){
 }
 
 function count_my_tasks_NoDeadline($conn, $id){
-    $sql = "SELECT id FROM tasks WHERE assigned_to=? AND status != 'completed'
-            AND due_date IS NULL OR due_date = '0000-00-00'";
+    $sql = "SELECT id FROM tasks WHERE assigned_to=? AND status != 'completed' AND (due_date IS NULL OR due_date = '0000-00-00') ";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$id]);
 
@@ -183,7 +182,7 @@ function count_my_pending_tasks($conn, $id){
 }
 
 function count_my_in_progress_tasks($conn, $id){
-    $sql = "SELECT id FROM tasks WHERE status = 'in_progress' AND assigned_to=?";
+    $sql = "SELECT id FROM tasks WHERE status = 'in_progess' AND assigned_to=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$id]);
 
