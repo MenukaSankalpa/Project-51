@@ -27,24 +27,32 @@
 /*.header i:hover{
     color: #127b8e;
 }*/
-header .notification {
+.notification {
     position: relative;
     cursor: pointer;
 }
-header .notification i {
-    font-size: 25px;
+.notification i{
+    font-size: 30px;
     color: #fff;
+    transition: 0.3s ease; 
 }
-header .notification span{
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background: #c80000;
-    padding: 1px;
-    border-radius: 50%;
-}
-header .notification:hover i{
+.notification:hover i {
     color: #127b8e;
+}
+.header .notification:hover i{
+    color: #127b8e;
+}
+.notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #c80000;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    line-height: 1;
+    font-weight: bold;
 }
 .notification-bar{
     
@@ -70,7 +78,7 @@ header .notification:hover i{
 }
 .open-notification {
     display: block;
-}
+}*/
 .user-p {
     text-align: center;
     padding-left: 10px;
