@@ -21,7 +21,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
-    <input type="checkbox" name="" id="checkbox">
+    <input type="checkbox" id="checkbox">
     <?php include "inc/header.php"?>
     <div class="body">
         <?php include "inc/nav.php"?>
