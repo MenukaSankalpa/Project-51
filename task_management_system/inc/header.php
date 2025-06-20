@@ -5,8 +5,8 @@
         </label>
     </h2>
     <span class="notification">
-        <i class="ri-user-fill" aria-hidden="true"></i>
-        <span>&nbsp;7&nbsp;</span>
+        <i class="ri-user-fill"></i>
+        <span class="badge">&nbsp;7&nbsp;</span>
     </span>
 </header>
 <div class="notification-bar">
