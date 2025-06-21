@@ -9,7 +9,7 @@
         <span class="badge">&nbsp;7&nbsp;</span>
     </span>
 </header>
-<div class="notification-bar" id="notificationBtn">
+<div class="notification-bar" id="notificationBar">
     <ul>
         <li>
             <a href="">
@@ -20,11 +20,11 @@
         </li>
     </ul>
 </div>
-<script>
+<script type="text/javascript">
     var openNotification = false;
 
-    const notification = () => {
-        let notificationBar = document.querySelector("notificationBtn");
+    const notification = ()=> {
+        let notificationBar = document.querySelector("#notificationBar");
         if (openNotification) {
             notificationBar.classList.remove('open-notification');
             openNotification = false;
@@ -33,4 +33,6 @@
             openNotification = true;
         }
     }
+    let notificationBtn = document.querySelector("#notificationBtn");
+    notificationBtn.addEventListener("click", notification);
 </script>
