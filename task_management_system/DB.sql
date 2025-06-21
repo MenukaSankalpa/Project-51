@@ -21,7 +21,7 @@ CREATE TABLE tasks (
 CREATE TABLE notifications (
     id INT AUTO_INCREMENT PRIMARY KEY,
     message TEXT NOT NULL,
-    recipient VARCHAR(255) NOT NULL,
+    recipient INT NOT NULL,
     type VARCHAR(50) NOT NULL,
     date DATE NOT NULL,
     is_read BOOLEAN DEFAULT FALSE
