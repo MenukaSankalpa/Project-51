@@ -34,7 +34,7 @@
 .notification i{
     font-size: 30px;
     color: #fff;
-    transition: 0.3s ease; 
+    transition: 0.3s ease;
 }
 .notification:hover i {
     color: #127b8e;
@@ -55,7 +55,7 @@
     font-weight: bold;
 }
 .notification-bar{
-    
+    display: none;
     width: 90%;
     max-width: 300px;
     position: absolute;
