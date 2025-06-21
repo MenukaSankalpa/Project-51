@@ -4,12 +4,12 @@
             <i id="navbtn" class="ri-menu-line"></i>
         </label>
     </h2>
-    <span class="notification">
+    <span class="notification" id="notificationBtn">
         <i class="ri-user-fill"></i>
         <span class="badge">&nbsp;7&nbsp;</span>
     </span>
 </header>
-<div class="notification-bar">
+<div class="notification-bar" id="notificationBtn">
     <ul>
         <li>
             <a href="">
@@ -20,3 +20,17 @@
         </li>
     </ul>
 </div>
+<script>
+    var openNotification = false;
+
+    const notification = () => {
+        let notificationBar = document.querySelector("notificationBtn");
+        if (openNotification) {
+            notificationBar.classList.remove('open-notification');
+            openNotification = false;
+        }else {
+            notificationBar.classList.add('open-notification');
+            openNotification = true;
+        }
+    }
+</script>
