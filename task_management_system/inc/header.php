@@ -18,6 +18,20 @@
                 &nbsp;&nbsp;<small>Sep 2, 2024</small>
             </a>
         </li>
+        <li>
+            <a href="">
+                <mark>New Task Assigned:</mark> 'Customer Feedback Survey Analysis' has been assigned to you. Please review 
+                and start working on it
+                &nbsp;&nbsp;<small>Sep 2, 2024</small>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <mark>New Task Assigned:</mark> 'Customer Feedback Survey Analysis' has been assigned to you. Please review 
+                and start working on it
+                &nbsp;&nbsp;<small>Sep 2, 2024</small>
+            </a>
+        </li>
     </ul>
 </div>
 <script type="text/javascript">
