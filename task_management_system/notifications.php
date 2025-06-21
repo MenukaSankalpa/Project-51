@@ -2,11 +2,11 @@
 session_start();
 if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
     include "DB_connection.php";
-    include "app/Model/Task.php";
-    include "app/Model/User.php";
+    include "app/Model/Notification.php";
+    //include "app/Model/User.php";
 
-    $tasks = get_all_tasks_by_id($conn, $_SESSION['id']);
-    $users = get_all_users($conn);
+    $notifications = get_all_my_notifications($conn, $_SESSION['id']);
+    
     
 ?>
 <!DOCTYPE html>
@@ -32,31 +32,25 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
                 <?php echo stripslashes($_GET['success']); ?>
             </div>
             <?php }?>
-            <?php if ($tasks != 0) { ?>
+            <?php if ($notifications != 0) { ?>
             <table class="main-table">
                 <tr>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                    <th>Due Date</th>
-                    <th>Action</th>
+                    <th>Message</th>
+                    <th>Type</th>
+                    <th>Date</th>
                 </tr>
-                <?php $i=0; foreach($tasks as $task) { ?>
+                <?php $i=0; foreach($notifications as $notification) { ?>
                 <tr>
                     <td><?=++$i?></td>
-                    <td><?=$task['title']?></td>
-                    <td><?=$task['description']?></td>
-                    <td><?=$task['status']?></td>
-                    <td><?=$task['due_date']?></td>
-                    <td>
-                        <a href="edit-task-employee.php?id=<?=$task['id']?>" class="edit-btn" >Edit</a>
-                    </td>
+                    <td><?=$notification['message']?></td>
+                    <td><?=$notification['type']?></td>
+                    <td><?=$notification['date']?></td>
                 </tr>
                 <?php } ?>
             </table>
         <?php } else { ?>
-            <h3>Empty</h3>
+            <h3>You Have Zero Notification</h3>
         <?php }?>
         </section>
     </div>
